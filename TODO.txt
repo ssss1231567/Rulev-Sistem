@@ -1,0 +1,142 @@
+﻿IP SERWERA 10.213.210.1
+IP REWORKA 10.213.210.136
+IP OBJ 10.213.210.137
+IP DOCK AUDIT 10.213.210.140
+
+EXEC sys.sp_MSforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL'
+wycinanie zawartości wszystkich tabel (reseed): EXEC sp_MSforeachtable 'TRUNCATE TABLE ?'
+wycinanie zawartości wszystkich tabel (no reseed): EXEC sys.sp_msforeachtable 'DELETE FROM ?'
+EXEC sys.sp_MSForEachTable 'ALTER TABLE ? CHECK CONSTRAINT ALL'
+
+USE [DB]
+GRANT EXEC TO [User_Name];
+
+ALTER USER A603_user WITH LOGIN = A603_user;
+
+ustawić wszystkie formaty językowe na ruski: language + app locale
+NIE TRZEBA - [ustawić format daty na yyyy-MM-dd przez panel sterowania] - ustawić dwucyfrową godzinę
+USTAWIĆ ROSYJSKIE COLLATION W BAZIE I WTEDY ŚMIGAJĄ STRINGI Z KRZACZKAMI I ROSYJSKI FORMAT DATY! - no chyba ten format daty jednak nie
+
+otwieranie firewalla na serwerze: dodać sqlservr.exe z program files/... do aplikacji, dodać port UDP 1434 do wyjątków
+
+
+ZAPROPONOWAĆ EDIEMU ŻEBY ZROBIĆ TAK, ŻE PO UZYSKANIU POŁĄCZENIA PLC PIERWSZE CO ROBI TO PRZEŁADOWUJE REFERENCJE
+
+TODO:
+dodanie możliwości dokończenia batcha na dock audit
+jak na razie nie trzeba zmieniać w PLC, z tym że przy starcie operacji trzeba nazwę piniona dać na PART_NAME, nie na PINION_NAME - ustalić jak to robimy po stronie PLC
+scroll do samej góry po każdej zmianie w listboxie to chyba jednak zły pomysł, źle się zachowuje jak się otworzy/zamknie rekord i potem trzeba do niego wracać
+DRUKOWANIE ETYKIETY NA DOCK AUDIT
+
+
+Stacja 130 - DOCK AUDIT
+1. Wybór modelu z listy referencji dla stacji 130
+2. Wybór wielkości pudełka z predefiniowanych wielkości w bazie
+3. Wygenerowanie i wyświetlenie kodu pudełka
+	- dzień roku (3 znaki)
+	- ostatnia cyfra roku (1 znak)
+	- literka z referencji (1 znak)
+	- numer pudełka w danym dniu (3 znaki) - mechanizm generowania i ręcznego resetu numeru, godzina automatycznego resetu jako parametr
+	- dodanie pudełka do bazy
+4. Skanowanie części
+	- po skanowaniu sprawdzenie zgodności z modelem, pierwsze 10 znaków powinno się zgadzać ze zmienną z referencji w bazie
+5. Sprawdzenie czy część jest OK na wszystkich stacjach
+	- stacje 160 i 165 nie muszą występować
+	- sprawdzenie czy występuje OK na wszystkich wymaganych stacjach
+6. Decyzja operatora o tym czy sztuka jest OK czy NOK
+	- przycisk OK - pakuje do pudła
+	- przycisk NOK - odkłada na bufor NOK
+	- przycisk "Zamknij pudło" - do wcześniejszego zamknięcia (automatyczne zamknięcie po dobiciu do wielkości z 2.)
+	- zapis statusu do bazy (zapis batch ID do PARTS, zapis operacji na stacji 130 do OPERATIONS)
+7. Po zapełnieniu pudła wydruk etykiety na drukarce
+8. Po wydrukowaniu etykiety skan etykiety i sprawdzenie czy jest ok
+	- ewentualnie możliwość reprintu etykiety
+
+
+!!!! Czy jak się wsadzi sztukę do pudła to już umarł w butach, czy ma być możliwość jakaś przeniesienia jej - nadpisanie batch ID w parts i dodanie nowej operacji dla sztuki przy odpowiednio wysokim poziomie uprawnień
+
+
+MOŻE:
+?? - zlikwidować ARCHIVISATION_ID przy archiwizacji, w roboczej i historycznej tabeli rekord całe życie z tym samym ID
+?? - ZMIENIĆ DZIAŁANIE BLOCZKÓW DO EDYCJI REFERENCJI/ARCHIWIZACJI - EDYCJA I USUWANIE PO ID I SHADOWSELECT NOWYCH WARTOŚCI PO EDYCJI KONIECZNIE - SHADOWSELECT MUSI BYĆ, BO INACZEJ AUTOMATYCZNIE GENEROWANE ID PRZEKŁAMUJE - jak się zrobi output inserted to nie musi - zastanowić się, bo po zmianie numeru stacji dla rekordu wygląda to trochę dziwnie dopóki nie zrobi się refresh
+?? - zrobić żeby przy update wysyłać tylko te kolumny które się serio zmieniły! - zrobione na razie dla manual editora
+?? - usunąć kolumnę REFERENCE NAME w archiwizacji
+?? - reinicjalizacja buforów po edycji sqla?
+?? - można wprowadzić do referencji rekord bez nazwy referencji, stacji itd, on potem zostaje zawieszony
+?? - budzenie kompa na reworku
+
+NA KOŃCU
+usunąć (?) limit rekordów przy select, ewentualnie dać go do configa
+constrainty na dane w bazie
+sprawdzić indeksy na tabelach
+sprawdzić foreign keye
+blokada okienek od poziomu dostępu
+wypisanie poziomów dostępu w oknie zarządzania
+
+OK:
+
+
+czy baza może sama wygenerować xlsx - trochę może, jak będzie trzeba to dołożymy
+strony w raporcie
+w obj automatyczne zerwanie ok do ready po paru sekundach
+przerobić piniona, rozdzielić save results pinion, dodać po osobnym case dla stacji 30 w add part, add operation, save results
+ZABLOKOWAĆ MOŻLIWOŚĆ EDYCJI LISTBOXA Z REPORTAMI, ale zostawić zaznaczanie i kopiowanie
+sprawdzić mozliwosć ujednolicenia zapisu wynikow stacji 30 z resztą (nie że idzie tylko jedna wiadomość)
+chować przyciski od stron jak raport nie ma stronnicowania
+clear do każdego reportu - dorobić osobny case w FGV display report i wywoływać tam to samo vi co przy inicie
+w report gear filtr last station zapełniać tylko istniejącymi stacjami tak jak na report dates
+rework generowanie clear przy automatycznym wylogowaniu
+wywalić id z raportu gear
+dodać w nagłówku reportowym info o przypisanym pudle
+okno do druku etykiety z palca
+dodać obsługę wyboru referencji do OBJ
+timeout na logoucie do configa, wszystkie stacje
+czyszczenie interfejsu w rework, obj
+scrollowanie okien do góry po zmianie zawartości
+przycisk do czyszczenia historii wiadomości w trace, rework
+automatyczne wylogowanie po 5 min
+w raporcie gear dodać serial w nagłówku jak na reworku
+przechowywać gear serial (i ogólnie dane edytowalne/inputy) w klastrze żeby nie pojawiły się jakieś niezgodności jak ktoś edytuje inputy po ściągnięciu danych
+podczas debugu repeatów na linii pamiętać że dla stacji 30 part id w OPERATIONS to nie jest part id tylko pinion ID
+dodać prompt o potwierdzenie zamykania
+upewnić się że historia komunikacji z PLC działa dobrze dla stacji 165
+prawoklikowe menu do kopiowania z labview a nie z windowsa
+dodatkowy rekord w edytorkach żeby dało się poscrollować do samego dołu i dodać kolejny rekord jeżeli całe okno jest wypełnione rekordami
+PREZENTACJA Z TRACE DLA ANDREW
+krzyżowo zapisywać id piniona do parta, a id parta do piniona
+nie zapalać bitu SQL DONE przy otrzymaniu ramki o zmianie referencji
+śmieci na realach - w PLC 0, w bazie jakieś małe wartości
+check if operation valid z pustym operatorem wywala błąd składni SQL, nie powinno
+do historii wiadomości dodać pomocnicze calle
+zwracać błąd "nieznana referencja" przy odpytywaniu o referencję jeżeli nazwa referencji nie występuje w bazie ani razu
+przenieść rzeczy w save results do środka case
+w archiwizacji description-unit-tag type-tag address
+w referencji zamienić pary kolumn typ-address z value-unit
+do part status w komendzie 5 dopisać 4 (part interrupted)
+przy zapisywaniu danych jeżeli rekord występuje w referencji z nazwą i w ALL, to jest uwzględniany dwa razy, odfiltrować ALL jeżeli dla danego typu-adresu jest rekord z nazwą
+rozpoczynanie operacji (komenda 5) dalej traktuje 0 jako ok, a powinno traktować 1 jako ok a 2 jako nok - powinno być dobrze już
+przy startowaniu operacji uwzględnić przypadek że część nie istnieje
+konta użytkowników
+przesyłać reference name przy odpytaniu o ST50
+przeklikać autoupdate ID i daty dla pozostałych edytorów, na razie jest tylko dla userów zrobione
+odpalić serwer na hali
+przy zmianie hasła dostępu do bazy sypie błędami przy pierwszym logowaniu nawet po podaniu poprawnego hasła
+przy autoinsercie ID i daty zrobić przez OUTPUT INSERTED... zwrotkę do edytora żeby automatycznie się aktualizowało
+ręczny sql z palca (nowa karta)
+zapis stringów do nowej tabeli
+do tabeli operacji dodać ID_operatora który wykonał daną operację - id z tabeli operatorów, PLC przysyła nazwę operatora
+do interfejsu bloczka dodać wejście operation status, wysyłać je w ramce z wynikami, na jego podstawie ewaluacja ostatniej operacji to tabeli operations parts, (0 ok, 1 nok, 4 przerwane) status lioczbowo, zapisywanie wyników może być niepełne jeżeli operacja przerwana
+przy parsowaniu limitów zrobić że dla jednej konkretnej wartości (do ustalenia, np limit min dla reala) jest wpisywane NULL - wartości reala się źle parsują, potestować - już ok, ustawiony NULL dla wartości -999999
+sprawdzić czy zmiana char(20) na char(30) jest bezbolesna 0 na podstawie part serial w production parts - OK
+w oknie Message (hex/alphanumeric) zabezpieczyć przed wyświetlaniem okna dla pustej wiadomości - OK
+czyszczenie śmieci przy wysyłaniu stringów z plc - jeśli po dłuższym wysyłany jest krótszy, to czasem zostają nienadpisane znaki z krótszego - OK
+w stacji logowanie wiadomości do środka case żeby mieć rzeczywiste timingi - OK
+w edytorze referencji i archiwizacji filtrowanie po typie (INT REAL STRING ALL) - OK
+zmiana wyselectowanego rowa przy zmianie rowa z klawiatury - OK
+dołożyć numer komendy do ramki SQL->PLC i parsować na podstawie tego numeru - dołożyć wysyłanie komendy z LV - OK
+dołożyć możliwość generowania ramki z poziomu LV, a nie w odpowiedzi na zapytanie z PLC (na ten moment potrzebne powiadomienie o zmianie w referencji)- OK
+status zbiorczy połączeń z PLC - zrobić tablicę ctli w fgv - OK
+status połączeń SQL dla stacji w tabelce - OK
+sortowanie po kolejności przy wyświetlaniu wszystkich wiadomości w Diagnostyce - OK
+długość wiadomości w Diagnostyce? - OK
+ulepszyć listę errorową żeby się dało zobaczyć całość komunikatu - OK
