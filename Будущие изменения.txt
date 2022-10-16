@@ -1,0 +1,33 @@
+VESTA. Ratio - 53.187;
+VESTA. Revision number Customer - Поменять на A.
+
+
+
+
+-----------------------------------------------------------------------------------------------
+
+Станция 120: 
+
+Новые данные для БД:
+
+INSERT INTO REFERENCE (REFERENCE_NAME, STATION_NMB, DESCRIPTION, VALUE, UNIT, PLC_TAG_TYPE, PLC_TAG_ADDRESS, CREATED_BY) 
+VALUES('VESTA', 120, 'Screwdriver program number', 200, '', 'INT', 2, 'Aumatic')
+
+INSERT INTO REFERENCE (REFERENCE_NAME, STATION_NMB, DESCRIPTION, VALUE, UNIT, PLC_TAG_TYPE, PLC_TAG_ADDRESS, CREATED_BY) 
+VALUES('VESTA', 120, 'Lot Quantity - TPB', 200, '', 'INT', 11, 'Aumatic')
+
+INSERT INTO REFERENCE (REFERENCE_NAME, STATION_NMB, DESCRIPTION, VALUE, UNIT, PLC_TAG_TYPE, PLC_TAG_ADDRESS, CREATED_BY) 
+VALUES('VESTA', 120, 'Lot Quantity - Screw', 210, '', 'INT', 12, 'Aumatic')
+
+INSERT INTO REFERENCE (REFERENCE_NAME, STATION_NMB, DESCRIPTION, VALUE, UNIT, PLC_TAG_TYPE, PLC_TAG_ADDRESS, CREATED_BY) 
+VALUES('VESTA', 120, 'Lot Quantity - Shim', 220, '', 'INT', 13, 'Aumatic')
+
+INSERT INTO REFERENCE (REFERENCE_NAME, STATION_NMB, DESCRIPTION, VALUE, UNIT, PLC_TAG_TYPE, PLC_TAG_ADDRESS, CREATED_BY) 
+VALUES('VESTA', 120, 'Lot Code - TPB', 'TPB', '', 'STRING', 3, 'Aumatic')
+
+INSERT INTO REFERENCE (REFERENCE_NAME, STATION_NMB, DESCRIPTION, VALUE, UNIT, PLC_TAG_TYPE, PLC_TAG_ADDRESS, CREATED_BY) 
+VALUES('VESTA', 120, 'Lot Code - Shim', 'Shim', '', 'STRING', 5, 'Aumatic')
+
+Новые batch добавятся автоматичеси.
+
+-----------------------------------------------------------------------------------------------
