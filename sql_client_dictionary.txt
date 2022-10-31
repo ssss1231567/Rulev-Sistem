@@ -274,6 +274,7 @@
 "REPORT_AUDIT_prepare_header_for_csv.vi";;"Block Diagram";;"SELECTED OP:";;"SELECTED OP:";;"(ий)SELECTED OP:"
 "REPORT_AUDIT_prepare_header_for_pdf.vi";;"Block Diagram";;"SELECTED STATUS:";;"SELECTED STATUS:";;"(ий)SELECTED STATUS:"
 "REPORT_AUDIT_save_csv.vi";;"Block Diagram";;"REPORT_AUDITS_from_%s_to_%s";;"REPORT_AUDITS_from_%s_to_%s";;"(ий)REPORT_AUDITS_from_%s_to_%s"
+"REPORT_AUDIT_get_data_results";;"Block Diagram";;"AUDIT RESULTS NOT FOUND";;"AUDIT RESULTS NOT FOUND";;"(ий)AUDIT RESULTS NOT FOUND"
 "REPORT_CBATCH_prepare_header_for_csv.vi";;"Block Diagram";;"BATCH CODE:";;"BATCH CODE:";;"(ий)BATCH CODE:"
 "REPORT_CBATCH_save_csv.vi";;"Block Diagram";;"REPORT_CUSTOMER_BATCH_%s";;"REPORT_CUSTOMER_BATCH_%s";;"(ий)REPORT_CUSTOMER_BATCH_%s"
 "REPORT_CFG_prepare_header_for_csv.vi";;"Block Diagram";;"SELECTED TYPE:";;"SELECTED TYPE:";;"(ий)SELECTED TYPE:"
