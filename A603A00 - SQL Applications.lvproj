@@ -10,34 +10,34 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="_misc" Type="Folder" URL="../_misc">
+		<Item Name="_misc" Type="Folder" URL="/D/LabView_LastVersion/Rulev-Sistem/_misc">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="DOCK_AUDIT" Type="Folder" URL="../DOCK_AUDIT">
+		<Item Name="DOCK_AUDIT" Type="Folder" URL="/D/LabView_LastVersion/Rulev-Sistem/DOCK_AUDIT">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="OBJ" Type="Folder" URL="../OBJ">
+		<Item Name="OBJ" Type="Folder" URL="/D/LabView_LastVersion/Rulev-Sistem/OBJ">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="OEE" Type="Folder" URL="../OEE">
+		<Item Name="OEE" Type="Folder" URL="/D/LabView_LastVersion/Rulev-Sistem/OEE">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="PLC_PROXY" Type="Folder" URL="../PLC_PROXY">
+		<Item Name="PLC_PROXY" Type="Folder" URL="/D/LabView_LastVersion/Rulev-Sistem/PLC_PROXY">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="REWORK" Type="Folder" URL="../REWORK">
+		<Item Name="REWORK" Type="Folder" URL="/D/LabView_LastVersion/Rulev-Sistem/REWORK">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="SQL_CLIENT" Type="Folder" URL="../SQL_CLIENT">
+		<Item Name="SQL_CLIENT" Type="Folder" URL="/D/LabView_LastVersion/Rulev-Sistem/SQL_CLIENT">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="aumatic.ico" Type="Document" URL="../aumatic.ico"/>
-		<Item Name="DOCK_AUDIT_MAIN.vi" Type="VI" URL="../DOCK_AUDIT_MAIN.vi"/>
-		<Item Name="OBJ_MAIN.vi" Type="VI" URL="../OBJ_MAIN.vi"/>
-		<Item Name="OEE_MAIN.vi" Type="VI" URL="../OEE_MAIN.vi"/>
-		<Item Name="PLC_PROXY_MAIN.vi" Type="VI" URL="../PLC_PROXY_MAIN.vi"/>
-		<Item Name="REWORK_MAIN.vi" Type="VI" URL="../REWORK_MAIN.vi"/>
-		<Item Name="SQL_CLIENT_MAIN.vi" Type="VI" URL="../SQL_CLIENT_MAIN.vi"/>
+		<Item Name="aumatic.ico" Type="Document" URL="/D/LabView_LastVersion/Rulev-Sistem/aumatic.ico"/>
+		<Item Name="DOCK_AUDIT_MAIN.vi" Type="VI" URL="/D/LabView_LastVersion/Rulev-Sistem/DOCK_AUDIT_MAIN.vi"/>
+		<Item Name="OBJ_MAIN.vi" Type="VI" URL="/D/LabView_LastVersion/Rulev-Sistem/OBJ_MAIN.vi"/>
+		<Item Name="OEE_MAIN.vi" Type="VI" URL="/D/LabView_LastVersion/Rulev-Sistem/OEE_MAIN.vi"/>
+		<Item Name="PLC_PROXY_MAIN.vi" Type="VI" URL="/D/LabView_LastVersion/Rulev-Sistem/PLC_PROXY_MAIN.vi"/>
+		<Item Name="REWORK_MAIN.vi" Type="VI" URL="/D/LabView_LastVersion/Rulev-Sistem/REWORK_MAIN.vi"/>
+		<Item Name="SQL_CLIENT_MAIN.vi" Type="VI" URL="/D/LabView_LastVersion/Rulev-Sistem/SQL_CLIENT_MAIN.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Build Error Cluster__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/Build Error Cluster__ogtk.vi"/>
@@ -612,12 +612,15 @@
 			<Item Name="mscorlib" Type="VI" URL="mscorlib">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="stringtotd.vi" Type="VI" URL="/&lt;resource&gt;/dialog/picktime.llb/stringtotd.vi"/>
 			<Item Name="System.Drawing" Type="Document" URL="System.Drawing">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="System.Windows.Forms" Type="Document" URL="System.Windows.Forms">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="tdtostring.vi" Type="VI" URL="/&lt;resource&gt;/dialog/picktime.llb/tdtostring.vi"/>
+			<Item Name="TRef FinderCallback.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/traverseref.llb/TRef FinderCallback.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="A603_DOCK_AUDIT" Type="EXE">
