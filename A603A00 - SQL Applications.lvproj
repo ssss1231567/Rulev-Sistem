@@ -1217,7 +1217,7 @@
 				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/aumatic.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{8DEDEEF4-3681-4FF3-A125-D60FF523DE49}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{1051C7CA-75F8-4700-9540-5C9D1E657417}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/SQL_CLIENT_MAIN.vi</Property>
