@@ -77,6 +77,7 @@
 "FGV_OBJ_status_display.vi";;"Block Diagram";;"%sERROR: %d - %s%s";;"%sERROR: %d - %s%s";;"%s(ий)ERROR: %d - %s%s"
 "FGV_OBJ_status_display.vi";;"Block Diagram";;"SOMETHING WENT WRONG - CHECK STATUS BELOW";;"SOMETHING WENT WRONG - CHECK STATUS BELOW";;"(ий)SOMETHING WENT WRONG - CHECK STATUS BELOW"
 "FGV_OBJ_test_button.vi";;"Block Diagram";;" USER ACCESS LEVEL TOO LOW TO PERFORM TEST";;" USER ACCESS LEVEL TOO LOW TO PERFORM TEST";;"(ий) USER ACCESS LEVEL TOO LOW TO PERFORM TEST"
+"FGV_tristate_indicator_OBJ_test.vi";;"Block Diagram";;"TOOLING";;"TOOLING";;"TOOLING"
 "FGV_tristate_indicator_OBJ_test.vi";;"Block Diagram";;"READY";;"READY";;"(ий)READY"
 "FGV_tristate_indicator_OBJ_test.vi";;"Block Diagram";;"PENDING";;"PENDING";;"(ий)PENDING"
 "FGV_tristate_indicator_OBJ_test.vi";;"Block Diagram";;"TEST OK";;"TEST OK";;"(ий)TEST OK"
