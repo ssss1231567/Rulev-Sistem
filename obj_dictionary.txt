@@ -5,7 +5,7 @@
 "OBJ_MAIN.vi";;"Front Panel";;"input_header";;"INPUT";;"бундмше дюммше"
 "OBJ_MAIN.vi";;"Front Panel";;"gear_info_summary_header";;"GEAR INFO SUMMARY";;"нямнбмюъ хмтнплюжхъ н пл"
 "OBJ_MAIN.vi";;"Front Panel";;"measurement_history_header";;"MEASUREMENT HISTORY";;"хярнпхъ хглепемхи"
-"OBJ_MAIN.vi";;"Front Panel";;"tooling_name";;"Reference: ";;"Reference:"
+"OBJ_MAIN.vi";;"Front Panel";;"tooling_name";;"Reference: ";;"           рХО:"
 "OBJ_MAIN.vi";;"Front Panel";;"USER_login_logout.BoolText";;"LOG IN / LOG OUT";;"LOG IN / LOG OUT"
 "OBJ_MAIN.vi";;"Front Panel";;"SQL_connections_indicator_global";;"SQL Connection Status:";;"SQL Connection Status:"
 "OBJ_MAIN.vi";;"Front Panel";;"ERROR_indicator_global";;"Application Status:";;"Application Status:"
